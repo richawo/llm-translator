@@ -1,62 +1,61 @@
-# LLM-Powered Localisation Tool
+# OpenAI Localisation Tool
 
-This Jupyter notebook provides an automated tool for translating long-form text documents from one language to another while retaining the original document formatting and structure.
+This project provides a tool for translating Markdown documents from one language to another using OpenAI's API. It tokenizes the input document, splits it into chunks, translates each chunk, and stitches the output back together to retain the original formatting.
 
-The notebook implements a complete pipeline for taking an input text file, splitting it into segments for translation, translating each segment using OpenAI's API, and reconstructing the full output document with the original formatting intact.
+## Features
 
-Key features:
-
-- **Flexible input support** - Accepts text files in various formats including Markdown, JSON, XML, HTML, plaintext, etc.
-
-- **Preserved document structure** - Headings, paragraphs, lists, tables, code blocks are reconstructed in the translated output.
-
-- **Robust translation** - Leverages OpenAI's powerful neural machine translation models via the OpenAI API for high-quality translations.
-
-- **Configurable** - Source and target languages are configurable parameters in the notebook.
-
-- **Automated workflow** - The notebook provides an end-to-end automated pipeline for document translation requiring minimal user input.
-
-This notebook aims to provide a simple yet powerful tool for translators, localizers, and anyone looking to make text documents accessible to readers of different languages. The automation retains document structure and formatting to minimize manual post-editing of translations.
-
-## How it works
-
-- Accepts text input file path as parameter
-- Reads in input file in various formats like Markdown, JSON, etc.
-- Splits input text into chunks for translation
-- Translates each chunk using OpenAI's language models via the OpenAI API
-- Stitches translated chunks back together into full output document
-- Preserves original formatting like headings, lists, code blocks, etc.
+- Accepts Markdown file as input
+- Tokenizes input text using tiktoken
+- Splits input into chunks at multiple newlines 
+- Sends each chunk to OpenAI for translation
+- Reconstructs translated output with original Markdown formatting
 
 ## Usage
 
+To use this translation workflow:
+
 1. Clone this repository
-2. Install Jupyter Notebook
+2. Install requirements
    ```
-   pip install jupyterlab
+   pip install -r requirements.txt
    ```
-3. Install OpenAI API package
-   ```
-   pip install openai
-   ```
-4. Set OpenAI API key in the notebook
-5. Run the notebook
-   - Pass file path to input text as first parameter
-   - Configure source and target languages
-   - Execute cells to translate
-6. Translated text with original formatting will be output
+3. Set OpenAI API key
+4. Run the Jupyter notebook
+   - Pass Markdown file path to `input_path` variable
+   - Set `input_language` and `output_language`
+   - Execute notebook cells
+5. Translated Markdown file will be printed in the final cell 
+
+## Configuration
+
+The main configuration options are:
+
+- `input_path` - Path to input Markdown file 
+- `input_language` - Source language code 
+- `output_language` - Target language code
+- `split_string` - String used to split input into chunks
 
 ## Examples
 
-- Translate Markdown documents like READMEs to other languages
-- Localize API documentation or software user guides
-- Convert large texts like ebooks or articles to new languages
+This can be used to translate Markdown docs like:
+
+- READMEs
+- Wikis / documentation
+- Articles / blog posts
+- Books 
+
+## Limitations
+
+- Only tested with Markdown formatting
+- Long documents may run into API tokens limits
+- Accuracy depends on OpenAI's translation model
+- Currently only caters to OpenAI's models
 
 ## Credits
 
-- Translation is powered by OpenAI's neural network models via the OpenAI API.
+- [tiktoken](https://github.com/openai/tiktoken) for fast encoding/tokenization
+- [OpenAI API](https://openai.com/api/) for translation 
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-Let me know if this updated README covers the necessary details on usage and installation! I can make any other changes needed to improve it.
+MIT
