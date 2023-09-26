@@ -1,4 +1,4 @@
-# OpenAI Localisation Tool
+# OpenAI Translator / Localisation Tool
 
 This project provides a tool for translating Markdown documents from one language to another using OpenAI's API. It tokenizes the input document, splits it into chunks, translates each chunk, and stitches the output back together to retain the original formatting.
 
