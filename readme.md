@@ -52,6 +52,8 @@ This can be used to translate Plain Text/Markdown docs like:
 - Only tested with Markdown and plain text formatting
 - Accuracy depends on OpenAI's translation model
 - Currently only caters to OpenAI's GPT models
+- Does not allow for lining up translations sequentially - only one file at a time
+- Does not allow for processing multiple segments of the tranlsation simultaneously
 
 ## Credits
 
