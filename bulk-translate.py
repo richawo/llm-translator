@@ -69,6 +69,6 @@ for lang in output_language:
                         time.sleep(retry_gap)
 
         # Export to output path
-        with open(f"data/output-{counter}.txt", "w") as f:
+        with open(f"data/{lang}-output-{counter}.txt", "w") as f:
             f.write(split_string.join(results))
 
