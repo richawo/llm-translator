@@ -2,7 +2,7 @@ import openai, tiktoken
 
 # Setup initialisation parameters
 input_language = "english"
-output_language = "french"
+most_popular_languages = ["french", "german", "italian", "spanish", "japanese", "korean", "chinese_simplified", "russian", "portuguese"]
 input_paths = ["data/input.txt","data/input.txt"]
 format = "markdown" # any special formatting considerations (e.g. .arb file, markdown, json, plain text, or multiple)
 split_string = "\n\n" # the split string used to segment the chunks within the text.
@@ -21,3 +21,9 @@ for text in texts:
     print(f"length: {len(text) * 1.3}")
     print(f"estimated tokens: {input_token_count * 1.3}")
 
+# Split the texts into chunks
+chunks = []
+for text in texts:
+    chunks.append(text.split(split_string))
+
+x = 1
