@@ -15,7 +15,7 @@ output_language = [
 ]
 input_paths = ["data/input.txt", "data/input.txt"]
 output_paths = ["data/input.txt", "data/input.txt"]
-format = "markdown"  # any special formatting considerations (e.g. .arb file, markdown, json, plain text, or multiple)
+format = "markdown (possibly including front-matter)"  # any special formatting considerations (e.g. .arb file, markdown, json, plain text, or multiple)
 split_string = "\n\n"  # the split string used to segment the chunks within the text.
 # TODO: whether to persist the chunks to a file or not
 persist_chunks = False
@@ -42,7 +42,7 @@ for text in file_contents:
 
 # Translate the chunks
 for lang in output_language:
-    system_prompt = f"You are a translation tool. You receive a string in a {format} format and written in {input_language}, and solely return the same string in {lang} without losing the original {format} formatting. Your translations are accurate, aiming not to deviate from the original structure, content, writing style and tone."
+    system_prompt = f"You are a translation tool. You receive a text snippet from a file in the following format:\n{format}\n\n. The file is also written in the language:\n{input_language}\n\n. As a translation tool, you will solely return the same string in {lang} without losing or amending the original formatting. Your translations are accurate, aiming not to deviate from the original structure, content, writing style and tone."
     for split_text in file_contents:
         results = []
         counter = 0
